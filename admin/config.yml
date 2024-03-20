@@ -28,7 +28,8 @@ collections:
         widget: hidden
         name: layout
         default: '{{slug}}.html'
-      - label: Seo
+      - &ref_0
+        label: Seo
         name: seo
         widget: object
         collapsed: true
@@ -86,6 +87,121 @@ collections:
             name: additional_tags
             widget: text
             required: false
+  - name: categories
+    label: Categories
+    folder: cms/categories
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_order
+        label: Order
+        widget: number
+        required: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: categories
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[categories].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
+  - name: products
+    label: Products
+    folder: cms/products
+    create: true
+    identifier_field: name
+    extension: md
+    slug: '{{slug}}'
+    fields:
+      - hint: ''
+        name: title
+        label: Name
+        widget: string
+        required: true
+      - hint: ''
+        name: created-on
+        label: Created On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: updated-on
+        label: Updated On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: published-on
+        label: Published On
+        widget: datetime
+        required: false
+      - hint: ''
+        name: f_image
+        label: Image
+        widget: object
+        required: true
+        fields:
+          - hint: ''
+            name: url
+            label: Image
+            widget: image
+            required: true
+            allow_multiple: false
+          - hint: Image Alt
+            name: alt
+            label: alt
+            widget: string
+            required: false
+      - hint: ''
+        name: f_select-a-category
+        label: Select A Category
+        widget: relation
+        required: true
+        collection: categories
+        value_field: cms/categories/{{slug}}.md
+        search_fields:
+          - slug
+          - name
+        display_fields:
+          - title
+        multiple: false
+      - label: Tags
+        widget: hidden
+        name: tags
+        default: products
+      - label: Layout
+        widget: hidden
+        name: layout
+        default: '[products].html'
+      - label: Publish Date
+        name: date
+        widget: datetime
+      - *ref_0
   - label: Theme Settings
     name: settings
     identifier_field: title
@@ -176,63 +292,61 @@ collections:
             name: title
             widget: hidden
             default: Texts
-          - hint: 'Original text: crazy 🐶 stories , key: b8d39c5'
+          - hint: 'Original text: 🐶 stories, key: -3163a134'
             label: Text
-            name: b8d39c5
+            name: '-3163a134'
             widget: string
-          - hint: 'Original text: shop, key: 35daf6'
+          - hint: 'Original text: 👛 Shop, key: -1bc925c8'
             label: Text
-            name: 35daf6
+            name: '-1bc925c8'
             widget: string
-          - hint: 'Original text: Crazydogmom, key: 218fe400'
+          - hint: 'Original text: Discover, key: 1422dc09'
             label: Text
-            name: 218fe400
+            name: 1422dc09
             widget: string
-          - hint: 'Original text: Design, key: 79ceadde'
+          - hint: 'Original text: the craziest, key: 49f85834'
             label: Text
-            name: 79ceadde
+            name: 49f85834
+            widget: string
+          - hint: 'Original text: dog 🐶, key: -4ef4db03'
+            label: Text
+            name: '-4ef4db03'
+            widget: string
+          - hint: 'Original text: products, key: -3bd42e9c'
+            label: Text
+            name: '-3bd42e9c'
+            widget: string
+          - hint: 'Original text: 🐶 Bandanas, key: 3341d99b'
+            label: Text
+            name: 3341d99b
+            widget: string
+          - hint: 'Original text: 👒 Caps, key: -2b2c2374'
+            label: Text
+            name: '-2b2c2374'
+            widget: string
+          - hint: 'Original text: 💩 Poop Bags, key: 277c9657'
+            label: Text
+            name: 277c9657
+            widget: string
+          - hint: 'Original text: 🐶 Leashes, key: -5ad431dc'
+            label: Text
+            name: '-5ad431dc'
+            widget: string
+          - hint: 'Original text: 🐶 toys, key: -5add5904'
+            label: Text
+            name: '-5add5904'
+            widget: string
+          - hint: 'Original text: No items found., key: 3d503d2b'
+            label: Text
+            name: 3d503d2b
+            widget: string
+          - hint: 'Original text: MADE WITH , key: 34dc9d4f'
+            label: Text
+            name: 34dc9d4f
             widget: string
           - hint: 'Original text: anthonysalamin.ch, key: -67104443'
             label: Text
             name: '-67104443'
-            widget: string
-          - hint: 'Original text: Services, key: 560f747e'
-            label: Text
-            name: 560f747e
-            widget: string
-          - hint: 'Original text: Interiors, key: -6a96df5d'
-            label: Text
-            name: '-6a96df5d'
-            widget: string
-          - hint: 'Original text: Exteriors, key: 53232555'
-            label: Text
-            name: '53232555'
-            widget: string
-          - hint: 'Original text: Landscapes, key: -35b5bec8'
-            label: Text
-            name: '-35b5bec8'
-            widget: string
-          - hint: 'Original text: HOW TO, key: 7f5e3c6b'
-            label: Text
-            name: 7f5e3c6b
-            widget: string
-          - hint: 'Original text: CREDITS, key: 681b407a'
-            label: Text
-            name: 681b407a
-            widget: string
-          - hint: 'Original text: cursor - TEXT demo, key: -15c11d07'
-            label: Text
-            name: '-15c11d07'
-            widget: string
-          - hint: 'Original text: say hello! 👋, key: 3fc919ea'
-            label: Text
-            name: 3fc919ea
-            widget: string
-          - hint: >-
-              Original text: Because you know your dog deserves it, your dog
-              needs it., key: -2ce6816e
-            label: Text
-            name: '-2ce6816e'
             widget: string
       - label: Links
         name: links
@@ -246,31 +360,9 @@ collections:
             label: Link
             name: '23'
             widget: string
-          - hint: 'Original link: https://crazydog.mom/, key: 5ceab518'
-            label: Link
-            name: 5ceab518
-            widget: string
           - hint: 'Original link: https://anthonysalamin.ch/, key: 6354f121'
             label: Link
             name: 6354f121
-            widget: string
-          - hint: >-
-              Original link:
-              mailto:LEOMANISH97@GMAIL.COM?subject=Requesting%20How-to%20for%20cursor%20interaction,
-              key: -d6df417
-            label: Link
-            name: '-d6df417'
-            widget: string
-          - hint: 'Original link: /, key: 2f'
-            label: Link
-            name: 2f
-            widget: string
-          - hint: >-
-              Original link:
-              mailto:leomanish098@gmail.com?subject=From%20Webflow%20Showcase%20-%20Add%20your%20Subject%20Here,
-              key: 76681b41
-            label: Link
-            name: 76681b41
             widget: string
       - label: Images
         name: images
@@ -281,7 +373,7 @@ collections:
             widget: hidden
             default: Images
           - label: Image
-            name: '-596d8cf2'
+            name: 37f9da07
             widget: object
             fields:
               - name: url
@@ -294,7 +386,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '-595f7571'
+            name: '-515818ce'
             widget: object
             fields:
               - name: url
@@ -307,72 +399,7 @@ collections:
                 widget: string
                 required: false
           - label: Image
-            name: '-5943466f'
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: '-59352eee'
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: '-5918ffec'
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: '-5927176d'
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: '-59515df0'
-            widget: object
-            fields:
-              - name: url
-                label: Image Url
-                widget: image
-                allow_multiple: false
-                required: false
-              - name: alt
-                label: Image Alt
-                widget: string
-                required: false
-          - label: Image
-            name: '-6a5d5ff4'
+            name: '0'
             widget: object
             fields:
               - name: url
